@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -14,6 +14,9 @@ function Navbar() {
       <div>NFT Marketplace</div>
       <Link to="/cart">
         <div className="scale-150 absolute right-20 top-10 flex flex-row cursor-pointer">
+          <Link to="/login">
+            <div className="text-lg mx-2 mr-5">Logout</div>
+          </Link>
           <div className="text-lg mx-2">Your cart</div>
           <ShoppingCartIcon />
           <div className="mx-2 text-xl">{num.length}</div>

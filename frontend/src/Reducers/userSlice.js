@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchUsers, loginUser } from "../api";
+import { fetchUsers, registerUser } from "../api";
 
-export const loginuser = createAsyncThunk(
-  "user/loginuser",
+export const registeruser = createAsyncThunk(
+  "user/registeruser",
   async (data, thunkAPI) => {
     const { fulfillWithValue } = thunkAPI;
     try {
-      const { user } = await loginUser(data);
+      const { user } = await registerUser(data);
       console.log("thunk", user);
       return fulfillWithValue(user);
     } catch (error) {
@@ -37,7 +37,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   extraReducers: {
-    [loginuser.fulfilled]: (state, action) => {
+    [registeruser.fulfilled]: (state, action) => {
       // state.email = action.email;
       // state.password = action.password;
       state.users = action.payload;
