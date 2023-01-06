@@ -6,6 +6,7 @@ import { handle } from "./AuthService";
 
 function Register({ setLoginUser }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,6 +22,7 @@ function Register({ setLoginUser }) {
 
     dispatch(registeruser(temp));
     setLoginUser(temp);
+    navigate("/home");
     // console.log(temp);
   };
 

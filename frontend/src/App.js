@@ -29,7 +29,7 @@ function App() {
       <Routes>
         {/* <Route path="/home" element={<Home />} />
         <Route path="/cart" element={<Cart />} /> */}
-
+        <Route path="/home" element={<Home />} />
         <Route
           exact
           path="/"
