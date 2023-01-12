@@ -50,7 +50,8 @@ export const addcart = createAsyncThunk(
     const { fulfillWithValue } = thunkAPI;
     try {
       const add = await addCart(id);
-      return fulfillWithValue(add);
+      // console.log(add, "fnwefgn");
+      return fulfillWithValue(add.data);
     } catch (error) {
       console.log(error.message);
     }
@@ -63,7 +64,7 @@ export const removecart = createAsyncThunk(
     const { fulfillWithValue } = thunkAPI;
     try {
       const remove = await removeCart(id);
-      return fulfillWithValue(remove);
+      return fulfillWithValue(remove.data);
     } catch (error) {
       console.log(error.message);
     }

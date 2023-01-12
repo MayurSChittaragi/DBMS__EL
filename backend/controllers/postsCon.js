@@ -32,9 +32,12 @@ export const deletePost = async (req, res) => {
 export const addCart = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId(id)) return res.status(404);
-  await postMessage.findByIdAndUpdate(id, {
+  const resp = await postMessage.findByIdAndUpdate(id, {
     addCart: true,
   });
+  const data = await postMessage.find();
+  // console.log(data);
+  res.status(200).json(data);
 };
 
 export const removeCart = async (req, res) => {
@@ -43,4 +46,7 @@ export const removeCart = async (req, res) => {
   await postMessage.findByIdAndUpdate(id, {
     addCart: false,
   });
+  const data = await postMessage.find();
+  // console.log(data);
+  res.status(200).json(data);
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { registeruser } from "../../Reducers/userSlice";
 import { handle } from "./AuthService";
@@ -22,7 +22,7 @@ function Register({ setLoginUser }) {
 
     dispatch(registeruser(temp));
     setLoginUser(temp);
-    navigate("/home");
+    navigate("/login");
     // console.log(temp);
   };
 
